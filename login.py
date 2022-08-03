@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import dash
 from dash import dcc, html, Input, Output, callback, State
 import dash_core_components as dcc
