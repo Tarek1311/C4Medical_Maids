@@ -42,7 +42,7 @@ dropdown = dbc.DropdownMenu(
         dbc.DropdownMenuItem("Youtube Channel", href="https://cryptopotluck.com/"),
         dbc.DropdownMenuItem(divider=True),
         dbc.DropdownMenuItem(
-            "Project Github",
+            "Projet Github",
             href="https://github.com/Tarek1311/C4Medical_Maids",
         ),
         dbc.DropdownMenuItem(
