@@ -1,1 +1,0 @@
-web: gunicorn C4Medical_Maids_APP:app --log-file -
