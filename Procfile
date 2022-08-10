@@ -1,1 +1,1 @@
-web: gunicorn C4Medical_Maids_APP:server
+web: gunicorn app:server
