@@ -1,1 +1,3 @@
-web: gunicorn app:server
+web: gunicorn c4medical-maids.wsgi --log-file -
+
+
