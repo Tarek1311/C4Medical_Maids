@@ -1,3 +1,1 @@
-web: gunicorn c4medical-maids.wsgi --log-file -
-
-
+web: waitress-serve --listen=*:8888 C4Medical_Maids.wsgi:application
