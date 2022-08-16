@@ -1,3 +1,3 @@
-web: python app.py runserver 0.0.0.0:8888
+web: gunicorn c4medical-maids.wsgi -b 0.0.0.0:$PORT
 
 
