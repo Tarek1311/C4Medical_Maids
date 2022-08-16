@@ -1,1 +1,2 @@
-web: waitress-serve --listen=*:$port C4Medical_Maids.wsgi:application
+web: gunicorn --bind 0.0.0.0:$PORT flaskapp:app
+
