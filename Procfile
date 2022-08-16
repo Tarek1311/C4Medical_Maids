@@ -1,1 +1,1 @@
-web: waitress-serve --listen=*:8888 C4Medical_Maids.wsgi:application
+web: waitress-serve --listen=*:$port C4Medical_Maids.wsgi:application
