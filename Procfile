@@ -1,2 +1,1 @@
-web: waitress-serve --port=$PORT c4medical-maids.wsgi:application
-
+web: python app.py
