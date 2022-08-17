@@ -511,5 +511,9 @@ for i in [2]:
         [State(f"navbar-collapse{i}", "is_open")],
     )(toggle_navbar_collapse)
 
+
+# for gunicorn to find server to launch
+server = app.server
+
 if __name__ == "__main__":
     app.run_server(debug=True, port=8888)
