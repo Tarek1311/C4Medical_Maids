@@ -1,13 +1,14 @@
+import base64
+from collections import Counter
+from io import BytesIO
+
 import dash
 import dash_bootstrap_components as dbc
-import dash_html_components as html
-from dash.dependencies import Input, Output, State
-import requests
-import base64
-from io import BytesIO
-import dash_core_components as dcc
 import plotly.graph_objs as go
-from collections import Counter
+import requests
+from dash import dcc
+from dash import html
+from dash.dependencies import Input, Output, State
 
 PLOTLY_LOGO = (
     "https://st2.depositphotos.com/4362315/7819/v/950/"
@@ -98,6 +99,8 @@ navbar = dbc.Navbar(
 
 ##############
 """App Components"""
+
+
 # Dropdown App
 
 
@@ -122,6 +125,8 @@ DropdownApp = html.Div(
         html.Div(id="output-container"),
     ]
 )
+
+
 # Textarea App #
 
 
@@ -376,6 +381,8 @@ row = html.Div(
 app.layout = html.Div([navbar, row])
 
 """Apps Functions"""
+
+
 # dropdown App #
 
 
@@ -409,7 +416,6 @@ def update_output(value):
     [Input("slider-updatemode", "value")],
 )
 def display_value(value):
-
     x = []
     for i in range(value):
         x.append(i)
@@ -429,13 +435,12 @@ def display_value(value):
     return {
         "data": [graph],
         "layout": layout,
-    }, f"Value: {round(value, 1)} Square: {value*value}"
+    }, f"Value: {round(value, 1)} Square: {value * value}"
 
 
 # Text App
 @app.callback(Output("txt-graph", "figure"), [Input("txt", "value")])
 def display_value(value):
-
     word_list = value.split()
     word_dic = Counter(word_list)
     x = list(word_dic.keys())
