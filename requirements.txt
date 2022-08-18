@@ -11,6 +11,8 @@ Flask-Bcrypt==1.0.1
 WTForms==3.0.1
 Flask-WTF==1.0.1
 Flask-SQLAlchemy==2.5.1
+celery==5.2.7
+
 
 
 

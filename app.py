@@ -17,6 +17,7 @@ from dash import html
 from dash.dependencies import Input
 from dash.dependencies import Output
 from dash.dependencies import State
+from celery import Celery
 
 PLOTLY_LOGO = (
     "https://st2.depositphotos.com/4362315/7819/v/950/"
