@@ -1,17 +1,10 @@
 import base64
 from collections import Counter
 from io import BytesIO
-import dash
 import dash_auth
 import dash_bootstrap_components as dbc
-import dash_core_components as dcc
-import dash_html_components as html
-import plotly.graph_objs as go
 import requests
-from dash import html
-from dash.dependencies import Input
-from dash.dependencies import Output
-from dash.dependencies import State
+from dash import html, dcc, Dash, Output, Input, State
 
 # Keep this out of source code repository - save in a file or a database
 VALID_USERNAME_PASSWORD_PAIRS = {
@@ -20,7 +13,7 @@ VALID_USERNAME_PASSWORD_PAIRS = {
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
-app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+app = Dash(__name__, external_stylesheets=external_stylesheets)
 auth = dash_auth.BasicAuth(
     app,
     VALID_USERNAME_PASSWORD_PAIRS
@@ -29,13 +22,13 @@ auth = dash_auth.BasicAuth(
 app.layout = html.Div([
     html.H1('Welcome to the app'),
     html.H3('You are successfully authorized'),
-    dcc.Dropdown(['A', 'B'], 'A', id='dropdown'),
+    dcc.Dropdown(options=['A', 'B'], value='A', id='dropdown'),
     dcc.Graph(id='graph')
 ], className='container')
 
 @app.callback(
-    dash.dependencies.Output('graph', 'figure'),
-    [dash.dependencies.Input('dropdown', 'value')])
+    Output('graph', 'figure'),
+    [Input('dropdown', 'value')])
 def update_graph(dropdown_value):
     return {
         'layout': {
@@ -58,16 +51,8 @@ PLOTLY_LOGO = (
     "medical-logo-health-care-center.jpg"
 )
 
-app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
-# try running the app with one of the Bootswatch themes e.g.
-# app = dash.Dash(external_stylesheets=[dbc.themes.JOURNAL])
-# app = dash.Dash(external_stylesheets=[dbc.themes.SKETCHY])
+app = Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
 
-
-"""Navbar"""
-# dropdown Items
-
-# make a reuseable navitem for the different examples
 nav_item = dbc.NavItem(
     dbc.NavLink(
         "ACCUEIL",
@@ -75,7 +60,6 @@ nav_item = dbc.NavItem(
     )
 )
 
-# make a reuseable dropdown for the different examples
 dropdown = dbc.DropdownMenu(
     children=[
         dbc.DropdownMenuItem(
@@ -102,13 +86,11 @@ dropdown = dbc.DropdownMenu(
     label="PLUS",
 )
 
-# Navbar Layout
 navbar = dbc.Navbar(
     dbc.Container(
         [
             html.A(
-                # Use row and col to control vertical
-                # alignment of logo / brand
+
                 dbc.Row(
                     [
                         dbc.Col(html.Img(src=PLOTLY_LOGO, height="30px")),
@@ -139,11 +121,7 @@ navbar = dbc.Navbar(
     className="mb-5",
 )
 
-##############
 """App Components"""
-# Dropdown App
-
-
 def enconde_image(image_url):
     buffered = BytesIO(requests.get(image_url).content)
     image_base64 = base64.b64encode(buffered.getvalue())
@@ -165,8 +143,6 @@ DropdownApp = html.Div(
         html.Div(id="output-container"),
     ]
 )
-# Textarea App #
-
 
 def transform_value(value):
     return 10**value
@@ -187,7 +163,6 @@ TextApp = html.Div(
     ]
 )
 
-# Slider
 SliderApp = html.Div(
     [
         html.H1("Square Root Slider Graph"),
@@ -209,7 +184,6 @@ SliderApp = html.Div(
 )
 
 """Body Components"""
-# Cards
 cardOne = dbc.Card(
     [
         dbc.CardImg(
@@ -374,7 +348,6 @@ card_content = [
 ]
 
 """Body"""
-# rows
 row = html.Div(
     [
         dbc.Row(
@@ -419,8 +392,6 @@ row = html.Div(
 app.layout = html.Div([navbar, row])
 
 """Apps Functions"""
-# dropdown App #
-
 
 @app.callback(Output("output-container", "children"), [Input("my-dropdown", "value")])
 def update_output(value):
@@ -443,62 +414,6 @@ def update_output(value):
         )
 
 
-# Slider App
-@app.callback(
-    [
-        Output("slider-graph", "figure"),
-        Output("updatemode-output-container", "children"),
-    ],
-    [Input("slider-updatemode", "value")],
-)
-def display_value(value):
-
-    x = []
-    for i in range(value):
-        x.append(i)
-
-    y = []
-    for i in range(value):
-        y.append(i * i)
-
-    graph = go.Scatter(x=x, y=y, name="Manipulate Graph")
-    layout = go.Layout(
-        paper_bgcolor="#27293d",
-        plot_bgcolor="rgba(0,0,0,0)",
-        xaxis=dict(range=[min(x), max(x)]),
-        yaxis=dict(range=[min(y), max(y)]),
-        font=dict(color="white"),
-    )
-    return {
-        "data": [graph],
-        "layout": layout,
-    }, f"Value: {round(value, 1)} Square: {value*value}"
-
-
-# Text App
-@app.callback(Output("txt-graph", "figure"), [Input("txt", "value")])
-def display_value(value):
-
-    word_list = value.split()
-    word_dic = Counter(word_list)
-    x = list(word_dic.keys())
-    y = list(word_dic.values())
-
-    graph = go.Bar(
-        x=x, y=y, name="Manipulate Graph", type="bar", marker=dict(color="lightgreen")
-    )
-
-    layout = go.Layout(
-        paper_bgcolor="#27293d",
-        plot_bgcolor="rgba(0,0,0,0)",
-        xaxis=dict(type="category"),
-        yaxis=dict(range=[-4, 4]),
-        font=dict(color="white"),
-    )
-    return {"data": [graph], "layout": layout}
-
-
-# module One
 @app.callback(
     Output("modal", "is_open"),
     [Input("open", "n_clicks"), Input("close", "n_clicks")],
@@ -510,7 +425,6 @@ def toggle_modal(n1, n2, is_open):
     return is_open
 
 
-# Module Two
 @app.callback(
     Output("modaltwo", "is_open"),
     [Input("opentwo", "n_clicks"), Input("closetwo", "n_clicks")],
@@ -522,7 +436,6 @@ def toggle_modal(n1, n2, is_open):
     return is_open
 
 
-# Module Three
 @app.callback(
     Output("modalthree", "is_open"),
     [Input("openthree", "n_clicks"), Input("closethree", "n_clicks")],
@@ -533,15 +446,11 @@ def toggle_modal(n1, n2, is_open):
         return not is_open
     return is_open
 
-
-# we use a callback to toggle the collapse on small screens
 def toggle_navbar_collapse(n, is_open):
     if n:
         return not is_open
     return is_open
 
-
-# the same function (toggle_navbar_collapse) is used in all three callbacks
 for i in [2]:
     app.callback(
         Output(f"navbar-collapse{i}", "is_open"),
