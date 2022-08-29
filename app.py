@@ -28,13 +28,12 @@ app = dash.Dash(
     __name__, server=server, use_pages=True, suppress_callback_exceptions=True,
     external_stylesheets=[dbc.themes.BOOTSTRAP]
 )
+server = app.server
+app.config.suppress_callback_exceptions = True
 
 # Keep this out of source code repository - save in a file or a database
 #  passwords should be encrypted
 VALID_USERNAME_PASSWORD = {"test": "test", "hello": "world"}
-
-
-
 
 # Updating the Flask Server configuration with Secret Key to encrypt the user session cookie
 server.config.update(SECRET_KEY=os.getenv("SECRET_KEY"))
@@ -95,8 +94,6 @@ def login_button_click(n_clicks, username, password):
             login_user(User(username))
             return "Login Successful"
         return "Incorrect  password"
-
-
 
 
 """Navbar"""
