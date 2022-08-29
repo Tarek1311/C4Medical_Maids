@@ -1,99 +1,67 @@
-import os
-from flask import Flask
-from flask_login import login_user, LoginManager, UserMixin, current_user
 import base64
 from collections import Counter
 from io import BytesIO
 import dash
+import dash_auth
 import dash_bootstrap_components as dbc
+import dash_core_components as dcc
+import dash_html_components as html
 import plotly.graph_objs as go
 import requests
-from dash import dcc
 from dash import html
 from dash.dependencies import Input
 from dash.dependencies import Output
 from dash.dependencies import State
+
+# Keep this out of source code repository - save in a file or a database
+VALID_USERNAME_PASSWORD_PAIRS = {
+    'hello': 'world'
+}
+
+external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+
+app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+auth = dash_auth.BasicAuth(
+    app,
+    VALID_USERNAME_PASSWORD_PAIRS
+)
+
+app.layout = html.Div([
+    html.H1('Welcome to the app'),
+    html.H3('You are successfully authorized'),
+    dcc.Dropdown(['A', 'B'], 'A', id='dropdown'),
+    dcc.Graph(id='graph')
+], className='container')
+
+@app.callback(
+    dash.dependencies.Output('graph', 'figure'),
+    [dash.dependencies.Input('dropdown', 'value')])
+def update_graph(dropdown_value):
+    return {
+        'layout': {
+            'title': 'Graph of {}'.format(dropdown_value),
+            'margin': {
+                'l': 20,
+                'b': 20,
+                'r': 10,
+                't': 60
+            }
+        },
+        'data': [{'x': [1, 2, 3], 'y': [4, 1, 2]}]
+    }
+
+
 
 PLOTLY_LOGO = (
     "https://st2.depositphotos.com/4362315/7819/v/950/"
     "depositphotos_78194060-stock-illustration-"
     "medical-logo-health-care-center.jpg"
 )
+
+app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
 # try running the app with one of the Bootswatch themes e.g.
 # app = dash.Dash(external_stylesheets=[dbc.themes.JOURNAL])
 # app = dash.Dash(external_stylesheets=[dbc.themes.SKETCHY])
-# Exposing the Flask Server to enable configuring it for logging in
-server = Flask(__name__)
-app = dash.Dash(
-    __name__, server=server, use_pages=True, suppress_callback_exceptions=True,
-    external_stylesheets=[dbc.themes.BOOTSTRAP]
-)
-server = app.server
-app.config.suppress_callback_exceptions = True
-
-# Keep this out of source code repository - save in a file or a database
-#  passwords should be encrypted
-VALID_USERNAME_PASSWORD = {"test": "test", "hello": "world"}
-
-# Updating the Flask Server configuration with Secret Key to encrypt the user session cookie
-server.config.update(SECRET_KEY=os.getenv("SECRET_KEY"))
-
-# Login manager object will be used to login / logout users
-login_manager = LoginManager()
-login_manager.init_app(server)
-login_manager.login_view = "/login"
-
-
-class User(UserMixin):
-    # User data model. It has to have at least self.id as a minimum
-    def __init__(self, username):
-        self.id = username
-
-
-@login_manager.user_loader
-def load_user(username):
-    """This function loads the user by user id. Typically this looks up the user from a user database.
-    We won't be registering or looking up users in this example, since we'll just login using LDAP server.
-    So we'll simply return a User object with the passed in username.
-    """
-    return User(username)
-
-
-app.layout = html.Div(
-    [
-        dcc.Location(id="url"),
-        html.Div(id="user-status-header"),
-        html.Hr(),
-        dash.page_container,
-    ]
-)
-
-
-@app.callback(
-    Output("user-status-header", "children"),
-    Input("url", "pathname"),
-)
-def update_authentication_status(_):
-    if current_user.is_authenticated:
-        return dcc.Link("logout", href="/logout")
-    return dcc.Link("login", href="/login")
-
-
-@app.callback(
-    Output("output-state", "children"),
-    Input("login-button", "n_clicks"),
-    State("uname-box", "value"),
-    State("pwd-box", "value"),
-    prevent_initial_call=True,
-)
-def login_button_click(n_clicks, username, password):
-    if n_clicks > 0:
-        if VALID_USERNAME_PASSWORD.get(username) is None:
-            return "Invalid username"
-        if VALID_USERNAME_PASSWORD.get(username) == password:
-            login_user(User(username))
-            return "Login Successful"
-        return "Incorrect  password"
 
 
 """Navbar"""
@@ -103,7 +71,7 @@ def login_button_click(n_clicks, username, password):
 nav_item = dbc.NavItem(
     dbc.NavLink(
         "ACCUEIL",
-        href="home.py",
+        href="/",
     )
 )
 
@@ -173,8 +141,6 @@ navbar = dbc.Navbar(
 
 ##############
 """App Components"""
-
-
 # Dropdown App
 
 
@@ -199,8 +165,6 @@ DropdownApp = html.Div(
         html.Div(id="output-container"),
     ]
 )
-
-
 # Textarea App #
 
 
@@ -453,14 +417,8 @@ row = html.Div(
 """Layout"""
 
 app.layout = html.Div([navbar, row])
-app.layout = html.Div([
-  dcc.Location(id='url', refresh=False),
-  html.Div(id='page-content')
-                     ])
 
 """Apps Functions"""
-
-
 # dropdown App #
 
 
@@ -494,6 +452,7 @@ def update_output(value):
     [Input("slider-updatemode", "value")],
 )
 def display_value(value):
+
     x = []
     for i in range(value):
         x.append(i)
@@ -513,12 +472,13 @@ def display_value(value):
     return {
         "data": [graph],
         "layout": layout,
-    }, f"Value: {round(value, 1)} Square: {value * value}"
+    }, f"Value: {round(value, 1)} Square: {value*value}"
 
 
 # Text App
 @app.callback(Output("txt-graph", "figure"), [Input("txt", "value")])
 def display_value(value):
+
     word_list = value.split()
     word_dic = Counter(word_list)
     x = list(word_dic.keys())
@@ -589,9 +549,9 @@ for i in [2]:
         [State(f"navbar-collapse{i}", "is_open")],
     )(toggle_navbar_collapse)
 
-
-# for gunicorn to find server to launch
-server = app.server
-
 if __name__ == "__main__":
     app.run_server(debug=True, port=8888)
+
+
+
+
