@@ -14,3 +14,19 @@
  	     4. Les accessoires chauffants et massants,
  	     5. La vente d’accessoires d'aide à la toilette, etc.
 
+## Prérequis
+Afin de pouvoir exécuter l'application sur votre poste, vous devez d'aborder installer les dépendances suivantes :
+  * Dash
+ 
+### Installation
+#### Dash
+  1. Regarder la documentation officielle [ici](https://dash.plotly.com//)
+  2. Taper `python app/app.py`
+ 
+### Lancement de notre application en local
+  1. Après avoir installé Dash, ouvrir une invite de commande
+  2. Taper `python app/app.py`
+ 
+
+
+
