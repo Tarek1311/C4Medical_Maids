@@ -24,9 +24,9 @@ Afin de pouvoir exécuter l'application sur votre poste, vous devez d'aborder in
 
   2. Créez un venv python3 et tous les paquets requis et l'application dans votre environnement virtuel.  
   	       A la racine du projet, lancez :  
-		   		`python3 -m venv venv`  
-           		`pip install -r requirements`  
-           		`pip install -e .`    
+		   		`* python3 -m venv venv`  
+           		`* pip install -r requirements`  
+                `* pip install -e .`    
 	       *Remarque : venv\Scripts\activate pour Windows*  
   3. Taper `python app/app.py`  
  
