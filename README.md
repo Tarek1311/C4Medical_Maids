@@ -21,11 +21,18 @@ Afin de pouvoir exécuter l'application sur votre poste, vous devez d'aborder in
 ### Installation
 #### Dash
   1. Regarder la documentation officielle [ici](https://dash.plotly.com//)
-  2. Taper `python app/app.py`
+
+  2. Créez un venv python3 et tous les packages requis et l'application dans votre environnement virtuel. 
+  	       A la racine du projet, lancez :
+		   `python3 -m venv venv
+            pip install -r requirements
+            pip install -e .`
+  3. Taper `python app/app.py`
  
 ### Lancement de notre application en local
   1. Après avoir installé Dash, ouvrir une invite de commande
   2. Taper `python app/app.py`
+  3. Visitez http://localhost:8888 dans votre navigateur Web
  
 
 
