@@ -27,6 +27,9 @@ Afin de pouvoir exécuter l'application sur votre poste, vous devez d'aborder in
 		   		`* python3 -m venv venv`  
            		`* pip install -r requirements`  
                 `* pip install -e .`    
+`* Une sous-puce`
+
+`* Une autre sous-puce`
 	       *Remarque : venv\Scripts\activate pour Windows*  
   3. Taper `python app/app.py`  
  
