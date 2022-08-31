@@ -1,9 +1,7 @@
 #!/usr/bin/venv python
 from setuptools import find_packages, setup
-from app import app
 
 setup(
-    # Name of the package
     name='C4Medical_Maids',
     version='1.0.0',
     description='Notre projet est une application de vente et location de matériels médical et paramédical',
@@ -22,4 +20,5 @@ setup(
                       "gunicorn==20.1.0",
                       "dash-auth==1.3.2"
                       ],
+    entry_points={"console_scripts": ["C4Medical_Maids = app.__main__:C4Medical_Maids"]},
 )
