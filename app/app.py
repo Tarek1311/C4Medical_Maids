@@ -6,7 +6,7 @@ import requests
 from dash import html, dcc, Dash, Output, Input, State
 
 # Keep this out of source code repository - save in a file or a database
-VALID_USERNAME_PASSWORD_PAIRS = [['Tarek','1234'],['Samuel','azerty']]
+VALID_USERNAME_PASSWORD_PAIRS ={ 'a':'b'}
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = Dash(__name__, external_stylesheets=external_stylesheets)
@@ -15,39 +15,11 @@ auth = dash_auth.BasicAuth(
     VALID_USERNAME_PASSWORD_PAIRS
 )
 
-app.layout = html.Div([
-    html.H1('Welcome to the app'),
-    html.H3('You are successfully authorized'),
-    dcc.Dropdown(options=['A', 'B'], value='A', id='dropdown'),
-    dcc.Graph(id='graph')
-], className='container')
-
-@app.callback(
-    Output('graph', 'figure'),
-    [Input('dropdown', 'value')])
-def update_graph(dropdown_value):
-    return {
-        'layout': {
-            'title': 'Graph of {}'.format(dropdown_value),
-            'margin': {
-                'l': 20,
-                'b': 20,
-                'r': 10,
-                't': 60
-            }
-        },
-        'data': [{'x': [1, 2, 3], 'y': [4, 1, 2]}]
-    }
-
-
-
 PLOTLY_LOGO = (
     "https://st2.depositphotos.com/4362315/7819/v/950/"
     "depositphotos_78194060-stock-illustration-"
     "medical-logo-health-care-center.jpg"
 )
-
-app = Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
 
 nav_item = dbc.NavItem(
     dbc.NavLink(
@@ -457,6 +429,5 @@ for i in [2]:
 if __name__ == "__main__":
     app.run_server(debug=True, port=8888)
 
-
-
-
+def run():
+    app.run_server(debug=True, port=8888)
