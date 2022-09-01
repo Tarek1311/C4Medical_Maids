@@ -22,7 +22,7 @@ Afin de pouvoir exécuter l'application sur votre poste, vous devez d'aborder in
 #### Dash
   1. Regarder la documentation officielle [ici](https://dash.plotly.com//)  
 
-  2. Créez un venv python3 et tous les paquets requis et l'application dans votre environnement virtuel.  
+  2. Créer un venv python3 et tous les paquets requis et l'application dans votre environnement virtuel.  
   	       A la racine du projet, lancez :  
 		   		`* python3 -m venv venv`  
            		`* pip install -r requirements`  
