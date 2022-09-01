@@ -20,5 +20,5 @@ setup(
                       "gunicorn==20.1.0",
                       "dash-auth==1.3.2"
                       ],
-    entry_points={"console_scripts": ["C4Medical_Maids = app.__main__:C4Medical_Maids"]},
+    entry_points={"console_scripts": ["run = app.app:run"]},
 )
