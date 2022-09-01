@@ -1,5 +1,4 @@
 import base64
-from collections import Counter
 from io import BytesIO
 import dash_auth
 import dash_bootstrap_components as dbc
@@ -7,12 +6,9 @@ import requests
 from dash import html, dcc, Dash, Output, Input, State
 
 # Keep this out of source code repository - save in a file or a database
-VALID_USERNAME_PASSWORD_PAIRS = {
-    'hello': 'world'
-}
+VALID_USERNAME_PASSWORD_PAIRS = [['Tarek','1234'],['Samuel','azerty']]
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
-
 app = Dash(__name__, external_stylesheets=external_stylesheets)
 auth = dash_auth.BasicAuth(
     app,
