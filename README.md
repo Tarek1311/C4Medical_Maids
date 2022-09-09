@@ -15,6 +15,7 @@
  	     5. La vente d’accessoires d'aide à la toilette, etc    
 
 ## Récapitulatif du projet  
+```
 C4Medical_Maids
 ├── app
 │     ├── __init__.py
@@ -25,6 +26,7 @@ C4Medical_Maids
 ├── requirements.txt
 ├── README.md 
 └── setup.py  
+```
 
 ## Prérequis
 Afin de pouvoir exécuter l'application sur votre poste, vous devez d'aborder installer les dépendances suivantes :  
