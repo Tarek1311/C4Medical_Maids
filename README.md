@@ -1,5 +1,5 @@
 # C4Medical Maids
-### Notre projet est une application de vente et location de matériels médical et paramédical.
+### Notre projet est une application de vente et location de matériels médical et paramédical. a
 
 
 **L'aplication a pour objectif d'apporter des solition concrète pour la vente et location de matériel/mobilier médical pour :** 
