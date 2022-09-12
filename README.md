@@ -2,7 +2,7 @@
 ### Notre projet est une application de vente et location de matériels médical et paramédical.
 
 
-**L'aplication a pour objectif d'apporter des solition concrètes pour la vente et location de matériel/mobilier médical pour :**  
+**L'aplication a pour objectif d'apporter des solutions concrètes pour la vente et location de matériel/mobilier médical pour :**  
        1. Les particuliers (personnes âgées, dépendantes, handicapés ou encore personnes à la recherche de confort et de bien-être)    
        2. Les professionnels de santé exerçant en libéral (médecins, infirmières, kinésithérapeutes, …) et les collectivités (hôpitaux, maisons de retraite, EHPAD, …)    
        3. Prestataire de santé à domicile (location d'un lit médicalisé, location de fauteuil roulant, mise en place d'une nutrition entérale à domicile…)                                                                                                                                                   
