@@ -29,10 +29,7 @@ C4Medical_Maids
 └── setup.py  
 ```
 
-## Prérequis
-Afin de pouvoir exécuter l'application sur votre poste, vous devez d'abord installer les dépendances suivantes :  
-  * Dash
- 
+   
 ### Installation
 #### Dash [ici](https://dash.plotly.com//)  
 
