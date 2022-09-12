@@ -2,10 +2,11 @@
 ### Notre projet est une application de vente et location de matériels médical et paramédical.
 
 
-**L'aplication a pour objectif d'apporter des solition concrète pour la vente et location de matériel/mobilier médical pour :**  
+**L'aplication a pour objectif d'apporter des solition concrètes pour la vente et location de matériel/mobilier médical pour :**  
        1. Les particuliers (personnes âgées, dépendantes, handicapés ou encore personnes à la recherche de confort et de bien-être)    
-       2. les professionnels de santé exerçant en libéral (hmédecins, infirmières, kinésithérapeutes, …) et les collectivités (hôpitaux, maisons de retraite, EHPAD, …)    
-       3. Prestataire de santé à domicile (location d'un lit médicalisé, location de fauteuil roulant, mise en place d'une nutrition entérale à domicile…)                                                                                                                                                    4. fournisseur de matériel médical et services auprès des professionnels de santé (collectivités ou libéraux).
+       2. Les professionnels de santé exerçant en libéral (médecins, infirmières, kinésithérapeutes, …) et les collectivités (hôpitaux, maisons de retraite, EHPAD, …)    
+       3. Prestataire de santé à domicile (location d'un lit médicalisé, location de fauteuil roulant, mise en place d'une nutrition entérale à domicile…)                                                                                                                                                   
+       4. Fournisseur de matériel médical et services auprès des professionnels de santé (collectivités ou libéraux).
                 
 **Nos services et activités :**  
  	     1. La location de lits médicalisés  
@@ -29,7 +30,7 @@ C4Medical_Maids
 ```
 
 ## Prérequis
-Afin de pouvoir exécuter l'application sur votre poste, vous devez d'aborder installer les dépendances suivantes :  
+Afin de pouvoir exécuter l'application sur votre poste, vous devez d'abord installer les dépendances suivantes :  
   * Dash
  
 ### Installation
@@ -49,6 +50,4 @@ Afin de pouvoir exécuter l'application sur votre poste, vous devez d'aborder in
   3. Visiter http://localhost:8888 dans votre navigateur Web  
  
 ## Run the tests  
-1. pytest  
-##  Cloner le repository git distant dans le répertoire local  
-git clone https://github.com/Tarek1311/C4Medical_Maids.git   
+1. pytest   
