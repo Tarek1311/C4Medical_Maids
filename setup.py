@@ -1,4 +1,3 @@
-#!/usr/bin/venv python
 from setuptools import find_packages, setup
 
 setup(
