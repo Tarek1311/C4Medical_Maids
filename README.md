@@ -47,4 +47,4 @@ C4Medical_Maids
   3. Visiter http://localhost:8888 dans votre navigateur Web  
  
 ## Run the tests  
-1. pytest   
+1. pytest  
