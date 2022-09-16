@@ -1,5 +1,4 @@
 import base64
-from collections import Counter
 from io import BytesIO
 import dash_auth
 import dash_bootstrap_components as dbc
@@ -7,42 +6,33 @@ import requests
 from dash import html, dcc, Dash, Output, Input, State
 
 # Keep this out of source code repository - save in a file or a database
-VALID_USERNAME_PASSWORD_PAIRS = {
-    'hello': 'world'
-}
+VALID_USERNAME_PASSWORD_PAIRS = {"hello": "world"}
 
-external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+external_stylesheets = ["https://codepen.io/chriddyp/pen/bWLwgP.css"]
 
-app = Dash(__name__, external_stylesheets=external_stylesheets)
-auth = dash_auth.BasicAuth(
-    app,
-    VALID_USERNAME_PASSWORD_PAIRS
+app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
+auth = dash_auth.BasicAuth(app, VALID_USERNAME_PASSWORD_PAIRS)
+
+app.layout = html.Div(
+    [
+        html.H1("Welcome to the app"),
+        html.H3("You are successfully authorized"),
+        dcc.Dropdown(options=["A", "B"], value="A", id="dropdown"),
+        dcc.Graph(id="graph"),
+    ],
+    className="container",
 )
 
-app.layout = html.Div([
-    html.H1('Welcome to the app'),
-    html.H3('You are successfully authorized'),
-    dcc.Dropdown(options=['A', 'B'], value='A', id='dropdown'),
-    dcc.Graph(id='graph')
-], className='container')
 
-@app.callback(
-    Output('graph', 'figure'),
-    [Input('dropdown', 'value')])
+@app.callback(Output("graph", "figure"), [Input("dropdown", "value")])
 def update_graph(dropdown_value):
     return {
-        'layout': {
-            'title': 'Graph of {}'.format(dropdown_value),
-            'margin': {
-                'l': 20,
-                'b': 20,
-                'r': 10,
-                't': 60
-            }
+        "layout": {
+            "title": "Graph of {}".format(dropdown_value),
+            "margin": {"l": 20, "b": 20, "r": 10, "t": 60},
         },
-        'data': [{'x': [1, 2, 3], 'y': [4, 1, 2]}]
+        "data": [{"x": [1, 2, 3], "y": [4, 1, 2]}],
     }
-
 
 
 PLOTLY_LOGO = (
@@ -50,8 +40,6 @@ PLOTLY_LOGO = (
     "depositphotos_78194060-stock-illustration-"
     "medical-logo-health-care-center.jpg"
 )
-
-app = Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
 
 nav_item = dbc.NavItem(
     dbc.NavLink(
@@ -90,7 +78,6 @@ navbar = dbc.Navbar(
     dbc.Container(
         [
             html.A(
-
                 dbc.Row(
                     [
                         dbc.Col(html.Img(src=PLOTLY_LOGO, height="30px")),
@@ -122,6 +109,8 @@ navbar = dbc.Navbar(
 )
 
 """App Components"""
+
+
 def enconde_image(image_url):
     buffered = BytesIO(requests.get(image_url).content)
     image_base64 = base64.b64encode(buffered.getvalue())
@@ -143,6 +132,7 @@ DropdownApp = html.Div(
         html.Div(id="output-container"),
     ]
 )
+
 
 def transform_value(value):
     return 10**value
@@ -393,6 +383,7 @@ app.layout = html.Div([navbar, row])
 
 """Apps Functions"""
 
+
 @app.callback(Output("output-container", "children"), [Input("my-dropdown", "value")])
 def update_output(value):
     NYC_img = enconde_image("https://www.altivie.fr/api/media/w_433/CvvaQZ_8Y.jpg")
@@ -446,10 +437,12 @@ def toggle_modal(n1, n2, is_open):
         return not is_open
     return is_open
 
+
 def toggle_navbar_collapse(n, is_open):
     if n:
         return not is_open
     return is_open
+
 
 for i in [2]:
     app.callback(
@@ -462,5 +455,5 @@ if __name__ == "__main__":
     app.run_server(debug=True, port=8888)
 
 
-
-
+def run():
+    app.run_server(debug=True, port=8888)
