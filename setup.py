@@ -1,7 +1,8 @@
-from setuptools import find_packages, setup
+from setuptools import setup
 
 with open("requirements.txt") as f:
     required = f.read().splitlines()
+
 setup(
     name="C4Medical_Maids",
     version="1.0.0",
@@ -11,7 +12,6 @@ setup(
     author="Tarek Khaldi",
     author_email="tarekkhaldi1311@gmail.com",
     url="https://github.com/Tarek1311/C4Medical_Maids.git/",
-    packages=find_packages(include=["app", "app.*"]),
     include_package_data=True,
     python_requires=">=3.7, <4",
     install_requires=required,

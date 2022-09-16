@@ -37,7 +37,9 @@ C4Medical_Maids
   	       A la racine du projet, lancez :  
 		   		`* python3 -m venv venv`  
            		`* pip install -r requirements`  
-                `* pip install -e .`    
+		        `* install_requires=open("requirements.txt").read().splitlines()`
+           Installer l'application avec `* pip install -e .`  
+           Vous pouvez utiliser `* run` pour lancer l'application  
 	       *Remarque : venv\Scripts\activate pour Windows*  
   3. Taper `python app/app.py`  
  
