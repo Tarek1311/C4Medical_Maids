@@ -1,7 +1,4 @@
-from setuptools import setup
-
-with open("requirements.txt") as f:
-    required = f.read().splitlines()
+from setuptools import setup, find_packages
 
 setup(
     name="C4Medical_Maids",
@@ -16,4 +13,5 @@ setup(
     python_requires=">=3.7, <4",
     install_requires=open("requirements.txt").read().splitlines(),
     entry_points={"console_scripts": ["run = app.app:run"]},
+    packages=find_packages(exclude=["tests"]),
 )

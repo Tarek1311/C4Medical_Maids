@@ -31,21 +31,20 @@ C4Medical_Maids
 
    
 ### Installation
-#### Dash [ici](https://dash.plotly.com//)  
+Pour ce projet, on utilise le framework: [Dash](https://dash.plotly.com//).
 
-  2. Créer un venv python3 et tous les paquets requis et l'application dans votre environnement virtuel.  
-  	       A la racine du projet, lancez :  
+  1. Créer un venv python3 et installer tout les paquets requis et l'application dans votre environnement virtuel.  
+  	       A la racine du projet, lancer :  
 		   		`* python3 -m venv venv`  
-           		`* pip install -r requirements`  
+           		`* source venv/bin/activate`  
+				*Remarque : venv\Scripts\activate pour Windows*  
            Installer l'application avec `pip install -e .`  
-           Vous pouvez utiliser `run` pour lancer l'application  
-	       *Remarque : venv\Scripts\activate pour Windows*  
-  3. Taper `python app/app.py`  
+           Installer pre-commit avec ` pre-commit install`
  
 ### Lancement de notre application en local
   1. Après avoir installé Dash, ouvrir une invite de commande  
-  2. Taper `python app/app.py`  
-  3. Visiter http://localhost:8888 dans votre navigateur Web  
+  2. Taper `python app/app.py` ou `run`  pour lancer l'application  
+  3. Visiter http://localhost:8888 dans votre navigateur Web 
  
-## Run the tests  
+### Lancer les tests  
 1. pytest   
