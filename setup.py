@@ -14,6 +14,6 @@ setup(
     url="https://github.com/Tarek1311/C4Medical_Maids.git/",
     include_package_data=True,
     python_requires=">=3.7, <4",
-    install_requires=required,
+    install_requires=open("requirements.txt").read().splitlines(),
     entry_points={"console_scripts": ["run = app.app:run"]},
 )
