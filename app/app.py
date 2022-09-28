@@ -1,7 +1,5 @@
 import base64
 from io import BytesIO
-
-import dash
 import dash_auth
 import dash_bootstrap_components as dbc
 import requests
