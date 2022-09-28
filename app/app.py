@@ -1,5 +1,7 @@
 import base64
 from io import BytesIO
+
+import dash
 import dash_auth
 import dash_bootstrap_components as dbc
 import requests
@@ -11,6 +13,7 @@ VALID_USERNAME_PASSWORD_PAIRS = {"hello": "world"}
 external_stylesheets = ["https://codepen.io/chriddyp/pen/bWLwgP.css"]
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
+server = app.server
 auth = dash_auth.BasicAuth(app, VALID_USERNAME_PASSWORD_PAIRS)
 
 app.layout = html.Div(
@@ -450,9 +453,6 @@ for i in [2]:
         [Input(f"navbar-toggler{i}", "n_clicks")],
         [State(f"navbar-collapse{i}", "is_open")],
     )(toggle_navbar_collapse)
-
-if __name__ == "__main__":
-    app.run_server(debug=True, port=8888)
 
 
 def run():
