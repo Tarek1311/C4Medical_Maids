@@ -11,12 +11,8 @@ home_content = html.Div(
     [
         dbc.Row(
             html.Img(
-                src="https://porterchester.edu/"
-                "sites/default/files/"
-                "styles/blogfeature_large/"
-                "public/field/image"
-                "/MedicalAssistantEmpathy"
-                ".jpg?itok=YjvZDOrb",
+                src="https://porterchester.edu/sites/default/files/styles/blogfeature_large/public/field/image"
+                "/MedicalAssistantEmpathy.jpg?itok=YjvZDOrb",
                 style={
                     "float": "right",
                     "clear": "right",
@@ -62,10 +58,8 @@ home_content = html.Div(
                         dbc.Card(
                             [
                                 dbc.CardImg(
-                                    src="https://1736922617.rsc.cdn77.org/"
-                                    "wp-content/webp-express/webp-images/"
-                                    "doc-root/wp-content/uploads/"
-                                    "2018/04/AdobeStock_215049877-1.jpeg.webp",
+                                    src="https://1736922617.rsc.cdn77.org/wp-content/webp-express/webp-images/"
+                                    "doc-root/wp-content/uploads/2018/04/AdobeStock_215049877-1.jpeg.webp",
                                     top=True,
                                 ),
                                 dbc.CardBody(
@@ -75,10 +69,9 @@ home_content = html.Div(
                                             className="card-title",
                                         ),
                                         html.P(
-                                            "C4Medical_Maids propose des fauteuils roulants manuels,"
-                                            " confortables, légers et facilement transportables. "
-                                            "Différents accessoires sont disponibles : "
-                                            "appuie-tête, gouttière, tablette amovible, "
+                                            "C4Medical_Maids propose des fauteuils roulants manuels,confortables,"
+                                            " légers et facilement transportables.Différents accessoires sont"
+                                            " disponibles : appuie-tête, gouttière, tablette amovible, "
                                             "coussin de positionnement, dossier fixe ou inclinable."
                                             "La largeur d’assise dépendra de votre morphologie. "
                                             "Plusieurs tailles existent en magasin.",
@@ -152,9 +145,7 @@ home_content = html.Div(
                         dbc.Card(
                             [
                                 dbc.CardImg(
-                                    src="https://www.pharmacie-leroy.fr/"
-                                    "wp-content/uploads/"
-                                    "sites/5955/2018/06/"
+                                    src="https://www.pharmacie-leroy.fr/wp-content/uploads/sites/5955/2018/06/"
                                     "location_souleve_malade.jpeg",
                                     top=True,
                                 ),
@@ -165,24 +156,13 @@ home_content = html.Div(
                                             className="card-title",
                                         ),
                                         html.P(
-                                            "Le lève-malades, "
-                                            "appelé aussi lève-personnes,"
-                                            " permet aux personnes"
-                                            " à mobilité réduite d’être transférées "
-                                            "d’un endroit à un autre,"
-                                            " tels que le lit,"
-                                            " le fauteuil roulant "
-                                            "ou encore les toilettes "
-                                            "ou la salle de bains."
-                                            " Le lève-personnes offre également "
-                                            "la possibilité de passer d’une position "
-                                            "assise"
-                                            " à une position allongée."
-                                            "Il s’agit d’une réelle aide technique "
-                                            "pour les aidants qui peuvent "
-                                            "ainsi réaliser les transferts en toute "
-                                            "sécurité, "
-                                            "sans effort physique.",
+                                            """ Le lève-malades, appelé aussi lève-personnes,permet aux personnes
+                                             à mobilité réduite d’être transférées d’un endroit à un autre,tels que 
+                                             le lit, le fauteuil roulant ou encore les toilettes ou la salle de bains."
+                                             Le lève-personnes offre également la possibilité de passer d’une position 
+                                             assise à une position allongée.Il s’agit d’une réelle aide technique 
+                                             pour les aidants qui peuvent ainsi réaliser les transferts en toute 
+                                             sécurité, sans effort physique.""",
                                             className="card-text",
                                         ),
                                         dbc.Button(

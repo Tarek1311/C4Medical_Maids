@@ -10,8 +10,26 @@ def encode_image(image_url):
     return (b"data:image/png;base64," + image_base64).decode()
 
 
-lms_img = encode_image("https://www.altivie.fr/api/media/w_433/CvvaQZ_8Y.jpg")
-lmxxl_img = encode_image("https://www.altivie.fr/api/media//MwqGVQ4hK.jpg")
-lmple_img = encode_image(
-    "https://i.pinimg.com/originals/66/6a/a8/666aa81ff3a685bb4f8ee1decab26989.jpg"
-)
+IMG_BED_DICT = {
+    "LMS": encode_image("https://www.altivie.fr/api/media/w_433/CvvaQZ_8Y.jpg"),
+    "LMXXL": encode_image("https://www.altivie.fr/api/media//MwqGVQ4hK.jpg"),
+    "LMPLE": encode_image(
+        "https://i.pinimg.com/originals/66/6a/a8/666aa81ff3a685bb4f8ee1decab26989.jpg"
+    ),
+}
+
+IMG_WHEELCHAIR_DICT = {
+    "FMS": encode_image("https://www.altivie.fr/api/media/w_433/CvvaQZ_8Y.jpg"),
+    "FMXXL": encode_image("https://www.altivie.fr/api/media//MwqGVQ4hK.jpg"),
+    "FMPLE": encode_image(
+        "https://i.pinimg.com/originals/66/6a/a8/666aa81ff3a685bb4f8ee1decab26989.jpg"
+    ),
+}
+
+IMG_LIFTER_DICT = {
+    "LMMS": encode_image("https://www.altivie.fr/api/media/w_433/CvvaQZ_8Y.jpg"),
+    "LMMXXL": encode_image("https://www.altivie.fr/api/media//MwqGVQ4hK.jpg"),
+    "LMMPLE": encode_image(
+        "https://i.pinimg.com/originals/66/6a/a8/666aa81ff3a685bb4f8ee1decab26989.jpg"
+    ),
+}
