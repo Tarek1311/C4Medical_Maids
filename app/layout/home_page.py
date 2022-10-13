@@ -1,5 +1,5 @@
 import dash_bootstrap_components as dbc
-from dash import html, dcc
+from dash import html
 
 from app.layout.bed_layout import bed_col
 from app.layout.lifter_layout import patient_lifter_col
@@ -18,8 +18,9 @@ home_content = html.Div(
                 style={
                     "float": "right",
                     "clear": "right",
-                    "margin-left": "10%",
-                    "width": "80vw",
+                    "margin-left": "auto",
+                    "margin-right": "auto",
+                    "width": "auto",
                     "height": "30vh",
                 },
             )
