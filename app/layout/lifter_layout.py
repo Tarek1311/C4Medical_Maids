@@ -12,7 +12,7 @@ de bains. Le lève-personnes offre également la possibilité de passer d’une 
 Il s’agit d’une réelle aide technique pour les aidants qui peuvent ainsi réaliser les transferts en toute sécurité,
 sans effort physique."""
 
-PATIENT_LIFTER_col = dbc.Col(
+patient_lifter_col = dbc.Col(
     html.Div(
         dbc.Card(
             [

@@ -21,7 +21,7 @@ bed_col = dbc.Col(
                         html.P(BED_DESCRIPTION, className="card-text"),
                         dbc.Button(
                             "En savoir plus",
-                            id="open-lit",
+                            id="open-bed",
                             color="warning",
                             style={"margin": "auto", "width": "100%"},
                         ),
@@ -57,12 +57,12 @@ bed_col = dbc.Col(
                                 dbc.ModalFooter(
                                     dbc.Button(
                                         "Fermer",
-                                        id="close-lit",
+                                        id="close-bed",
                                         className="ml-auto",
                                     )
                                 ),
                             ],
-                            id="modal-lit",
+                            id="modal-bed",
                         ),
                     ]
                 ),

@@ -11,7 +11,7 @@ transportables. Différents accessoires sont disponibles : appuie-tête, goutti�
 coussin de positionnement, dossier fixe ou inclinable. La largeur d’assise dépendra de votre morphologie. 
 Plusieurs tailles existent en magasin."""
 
-Wheelchair_col = dbc.Col(
+wheelchair_col = dbc.Col(
     html.Div(
         dbc.Card(
             [
@@ -24,7 +24,7 @@ Wheelchair_col = dbc.Col(
                         html.P(Wheelchair_DESCRIPTION, className="card-text"),
                         dbc.Button(
                             "En savoir plus",
-                            id="open-lit",
+                            id="open-wheelchair",
                             color="warning",
                             style={"margin": "auto", "width": "100%"},
                         ),
@@ -35,7 +35,7 @@ Wheelchair_col = dbc.Col(
                                     html.Div(
                                         [
                                             dcc.Dropdown(
-                                                id="Wheelchair-dropdown",
+                                                id="wheelchair-dropdown",
                                                 options=[
                                                     {
                                                         "label": "fauteuil médicalisé standard",
