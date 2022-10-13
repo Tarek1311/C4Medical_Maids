@@ -1,1 +1,1 @@
-web: gunicorn app.__main__:serverutil
+web: gunicorn app.__main__:server
