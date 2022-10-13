@@ -27,9 +27,9 @@ IMG_WHEELCHAIR_DICT = {
 }
 
 IMG_LIFTER_DICT = {
-    "LMMS": encode_image("https://www.altivie.fr/api/media/w_433/CvvaQZ_8Y.jpg"),
-    "LMMXXL": encode_image("https://www.altivie.fr/api/media//MwqGVQ4hK.jpg"),
-    "LMMPLE": encode_image(
+    "LMS": encode_image("https://www.altivie.fr/api/media/w_433/CvvaQZ_8Y.jpg"),
+    "LMXXL": encode_image("https://www.altivie.fr/api/media//MwqGVQ4hK.jpg"),
+    "LMPLE": encode_image(
         "https://i.pinimg.com/originals/66/6a/a8/666aa81ff3a685bb4f8ee1decab26989.jpg"
     ),
 }

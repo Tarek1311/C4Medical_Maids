@@ -53,19 +53,19 @@ Wheelchair_col = dbc.Col(
                                                 value="FMS",
                                                 placeholder="",
                                             ),
-                                            html.Div(id="output-container"),
+                                            html.Div(id="output-wheelchairContainer"),
                                         ]
                                     )
                                 ),
                                 dbc.ModalFooter(
                                     dbc.Button(
                                         "Fermer",
-                                        id="close-fauteuil",
+                                        id="close-wheelchair",
                                         className="ml-auto",
                                     )
                                 ),
                             ],
-                            id="modal-fauteuil",
+                            id="modal-wheelchair",
                         ),
                     ]
                 ),
